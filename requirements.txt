@@ -1,0 +1,14 @@
+matplotlib
+numpy
+pandas
+seaborn
+tqdm
+tensorflow-gpu==1.15.2
+#tensorflow==1.15.2
+Keras==2.3.1
+scikit-learn
+nltk
+gensim
+h5py
+ipykernel
+jupyter
