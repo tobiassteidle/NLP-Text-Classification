@@ -34,20 +34,38 @@ Where `content` is the text of the tweet and `label` is the classification wheth
 
 #### GPU Support
 If the CUDA drivers are installed the GPU version of Tensorflow can be used.
-To do this, un-comment the line `tensorflow-gpu==2.1.0` and comment out `tensorflow==2.1.0` in the `requirements.txt`.
-  
+To do this, un-comment the line `tensorflow-gpu==2.1.0` and comment out `tensorflow==2.1.0` in the `requirements.txt`.    
 By default the CPU version is installed.
 
 #### Installation Steps
 
-1. Create and activate a new environment.
+##### 1. Create and activate a new environment.
 ```
 conda create -n nlp python=3.6
 source activate nlp
 ```
-2. Install Dependencies.
+##### 2. Install Dependencies.
 ```
 pip install -r requirements.txt
+```
+
+##### 3. Test if GPU support is working (optional GPU only)
+To check if GPU is used for Tensorflow execute
+```
+python test_gpu.py
+```
+
+The Output should be something like (depends on your graphic card):
+```
+2020-02-08 08:28:39.981439: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_101.dll
+2020-02-08 08:28:45.061725: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
+2020-02-08 08:28:45.102095: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties:
+pciBusID: 0000:02:00.0 name: GeForce GTX 1070 computeCapability: 6.1
+coreClock: 1.7465GHz coreCount: 15 deviceMemorySize: 8.00GiB deviceMemoryBandwidth: 238.66GiB/s
+...
+...
+...
+Default GPU Device:/device:GPU:0
 ```
 
 ### Training of the neural network
