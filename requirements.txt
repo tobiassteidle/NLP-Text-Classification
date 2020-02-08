@@ -3,8 +3,8 @@ numpy
 pandas
 seaborn
 tqdm
-tensorflow-gpu==1.15.2
-#tensorflow==1.15.2
+#tensorflow-gpu==2.1.0
+tensorflow==2.1.0
 Keras==2.3.1
 scikit-learn
 nltk
