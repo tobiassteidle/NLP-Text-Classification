@@ -130,3 +130,6 @@ dmypy.json
 
 .idea/
 logs/
+backup/
+
+*.h5
