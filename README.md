@@ -1,18 +1,31 @@
 # Repository ist noch PRIVATE !!!!
 
-
-# NLP Cyber Troll detection
-Prediction if a text comes from a Cyber-Troll or a normal User.
-
-### Objectives
-Classifing tweets as aggressive or not to help fight trolls.
+# NLP Text Classification
+Classification of short texts like headlines or tweets.
 
 ## Additional Information
-Dataset: [Tweets Dataset for Detection of Cyber-Trolls](https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls)  
+Dataset: [News Category Dataset](https://www.kaggle.com/rmisra/news-category-dataset)
+Dataset: [Tweets Dataset for Detection of Cyber-Trolls](https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls)
+  
 Tensorflow Version: 2.1.0
 
 ### Dataset Information
-The dataset is contained in this repository in `/data/cybertroll.data`  
+#### News dataset
+The dataset is contained in this repository in `/data/news_train.data` and `/data/news_test.data`
+It contains of a set of JSON records in the following format:
+```
+{
+   "category":"ENTERTAINMENT",
+   "headline":"Jim Carrey Blasts 'Castrato' Adam Schiff And Democrats In New Artwork",
+   "authors":"Ron Dicker",
+   "link":"https://www.huffingtonpost.com/entry/jim-carrey-adam-schiff-democrats_us_5b0950e8e4b0fdb2aa53e675",
+   "short_description":"The actor gives Dems an ass-kicking for not fighting hard enough against Donald Trump.",
+   "date":"2018-05-26"
+}
+```
+
+#### Cybertroll dataset
+The dataset is contained in this repository in `/data/cybertroll_train.data` and `/data/cybertroll_test.data`   
 It contains of a set of JSON records in the following format:
 ```
 { 
@@ -47,6 +60,7 @@ source activate nlp
 ##### 2. Install Dependencies.
 ```
 pip install -r requirements.txt
+python -m spacy download en_core_web_sm
 ```
 
 ##### 3. Test if GPU support is working (optional GPU only)
@@ -71,5 +85,5 @@ Default GPU Device:/device:GPU:0
 ### Training of the neural network
 Start the Jupyter Notebook and follow the instructions.
 ```
-jupyter notebook "NLP Troll Detection Example.ipynb"
+jupyter notebook "NLP Text Classification.ipynb"
 ```
