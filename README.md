@@ -1,10 +1,8 @@
-# Repository ist noch PRIVATE !!!!
-
 # NLP Text Classification
 Classification of short texts like headlines or tweets.
 
 ## Additional Information
-Dataset: [News Category Dataset](https://www.kaggle.com/rmisra/news-category-dataset)
+Dataset: [News Category Dataset](https://www.kaggle.com/rmisra/news-category-dataset)  
 Dataset: [Tweets Dataset for Detection of Cyber-Trolls](https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls)
   
 Tensorflow Version: 2.1.0
