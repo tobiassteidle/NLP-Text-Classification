@@ -1,5 +1,9 @@
+import numpy as np
+import matplotlib.cm as cm
+from matplotlib.colors import Normalize
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
+from sklearn.metrics import confusion_matrix
 
 def plot_history(history):
     # summarize history for accuracy
@@ -26,4 +30,24 @@ def plot_wordcloud(words):
     plt.figure(figsize=(15, 12))
     plt.imshow(wordcloud, interpolation="bilinear")
     plt.axis('off')
+    plt.show()
+
+def plot_confusion_matrix(y_test, y_pred, classnames):
+    cm = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1), normalize='true')
+    plt.figure(figsize=(15, 12))
+    plt.matshow(cm, fignum=1)
+    plt.colorbar()
+    plt.ylabel('True label')
+    plt.yticks(np.arange(len(classnames)), labels=classnames)
+    plt.xlabel('Predicted label')
+    plt.xticks(np.arange(len(classnames)), labels=classnames, rotation='vertical')
+    plt.show()
+
+def plot_prediction_bar(prediction, classnames):
+    color_map = cm.get_cmap('terrain')
+    plt.figure(figsize=(15, 12))
+    y_pos = np.arange(len(classnames))
+    plt.bar(y_pos, prediction, align='center', color=color_map(prediction))
+    plt.xticks(y_pos, classnames, rotation='vertical')
+    plt.ylabel('Prediction (%)')
     plt.show()
