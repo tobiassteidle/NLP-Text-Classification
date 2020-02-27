@@ -1,12 +1,9 @@
 import json
 import pandas as pd
 
-DATA_DIR = './data/'
-DATA_FILE = DATA_DIR + 'news_train.data'
-
-def load_news_dataset():
+def load_news_dataset(datafile):
     data = []
-    with open(DATA_FILE) as f:
+    with open(datafile) as f:
         content = f.readlines()
         for i in range(len(content)):
             txt = content[i]
@@ -24,3 +21,15 @@ def load_news_dataset():
 
     return pd.DataFrame(data)
 
+def load_cybertroll_dataset(datafile):
+    data = []
+    with open(datafile) as f:
+        content = f.readlines()
+        for i in range(len(content)):
+            txt = content[i]
+            data_dict = json.loads(txt)
+            headline = data_dict['content']
+            category = 'USER' if int(data_dict['annotation']['label'][0]) == 0 else 'CYBERTROLL'
+            data.append({'id': i, 'category': category, 'headline': headline})
+
+    return pd.DataFrame(data)
